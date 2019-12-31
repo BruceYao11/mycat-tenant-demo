@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mycat.tenant:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>mycat.tenant</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="mycat.tenant.war">
+      <element id="artifact" artifact-name="mycat.tenant:war exploded" />
+    </root>
+  </artifact>
+</component>
