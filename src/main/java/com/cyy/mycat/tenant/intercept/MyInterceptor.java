@@ -16,15 +16,15 @@ import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
-
 @Intercepts({
 		@Signature(method = "query", type = Executor.class, args = {
 				MappedStatement.class, Object.class, RowBounds.class,
-				ResultHandler.class }),
-		@Signature(method = "prepare", type = StatementHandler.class, args = { Connection.class }) })
+				ResultHandler.class } ),
+		@Signature(method = "prepare", type = StatementHandler.class, args = { Connection.class } ) } )
 public class MyInterceptor implements Interceptor {
 
-	private final static String[] scrm_public = { "public_tenant"};
+	private final static String[] scrm_public = {"public_tenant"};
+
 	@Override
 	public Object intercept(Invocation invocation) throws Throwable {
 		String schema = MyCatFilter.getSchema();
@@ -47,12 +47,12 @@ public class MyInterceptor implements Interceptor {
 		}
 		return invocation.proceed();
 	}
+
     @Override
 	public Object plugin(Object target) {
 		return Plugin.wrap(target, this);
 	}
-	@Override
-	public void setProperties(Properties properties) {
-	}
 
+	@Override
+	public void setProperties(Properties properties) {}
 }

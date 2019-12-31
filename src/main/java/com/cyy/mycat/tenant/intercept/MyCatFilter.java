@@ -12,11 +12,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-
 public class MyCatFilter implements Filter {
 
 	private static final ThreadLocal<String> SCHEMA_LOCAL = new ThreadLocal<>();
 	private static final ThreadLocal<String> TENANT_ID_LOCAL = new ThreadLocal<>();
+
 	public static String getSchema() {
 		String schema = SCHEMA_LOCAL.get();
 		if (!StringUtils.isEmpty(schema)) {
@@ -26,18 +26,17 @@ public class MyCatFilter implements Filter {
 		}
 	}
 
-	public static String getTenantId(){
-		String tenantId=TENANT_ID_LOCAL.get();
+	public static String getTenantId() {
+		String tenantId = TENANT_ID_LOCAL.get();
 		if (!StringUtils.isEmpty(tenantId)) {
 			return tenantId;
 		} else {
 			return "";
 		}
 	}
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
 
-	}
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -61,11 +60,8 @@ public class MyCatFilter implements Filter {
 		} finally {
 			SCHEMA_LOCAL.remove();
 		}
-
 	}
 
 	@Override
-	public void destroy() {
-	}
-
+	public void destroy() {}
 }

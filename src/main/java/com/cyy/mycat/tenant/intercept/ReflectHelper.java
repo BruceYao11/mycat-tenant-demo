@@ -3,28 +3,21 @@ import java.lang.reflect.Field;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 
-/**
- * 
-* @explain 
-* @author wschenyongyin
-* @date 2017年5月22日
- */
 public class ReflectHelper {  
     
-    public static Object getFieldValue(Object obj , String fieldName ){  
-          
-        if(obj == null){  
-            return null ;  
+    public static Object getFieldValue(Object obj , String fieldName ) {
+        if (obj == null) {
+            return null;
         }  
           
         Field targetField = getTargetField(obj.getClass(), fieldName);  
           
         try {  
-            return FieldUtils.readField(targetField, obj, true ) ;  
+            return FieldUtils.readField(targetField, obj, true );
         } catch (IllegalAccessException e) {  
             e.printStackTrace();  
         }   
-        return null ;  
+        return null;
     }  
       
     public static Field getTargetField(Class<?> targetClass, String fieldName) {  
@@ -43,17 +36,17 @@ public class ReflectHelper {
             if (field == null) {  
                 field = getTargetField(targetClass.getSuperclass(), fieldName);  
             }  
-        } catch (Exception e) {  
-        }  
-  
+        } catch (Exception e) {}
         return field;  
     }  
       
-    public static void setFieldValue(Object obj , String fieldName , Object value ){  
-        if(null == obj){return;}  
+    public static void setFieldValue(Object obj , String fieldName , Object value ) {
+        if (null == obj) {
+            return;
+        }
         Field targetField = getTargetField(obj.getClass(), fieldName);    
         try {  
-             FieldUtils.writeField(targetField, obj, value) ;  
+             FieldUtils.writeField(targetField, obj, value);
         } catch (IllegalAccessException e) {  
             e.printStackTrace();  
         }   
