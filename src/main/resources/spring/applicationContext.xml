@@ -5,23 +5,55 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 						http://www.springframework.org/schema/context
-						http://www.springframework.org/schema/context/spring-context-4.3.xsd
-                        ">
-    <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath:conf/*.properties</value>
-            </list>
-        </property>
-        <!-- 设置编码格式 -->
-        <property name="fileEncoding" value="UTF-8"></property>
+						http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <!-- 自动扫描 -->
+    <context:component-scan base-package="com.eccom.mycat.tenant" >
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 引入配置文件 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:conf/jdbc.properties"/>
     </bean>
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="properties" ref="configProperties"/>
+
+    <bean id="poolDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${initialSize}"></property>
+        <!-- 连接池最大数量 -->
+        <property name="maxActive" value="${maxActive}"></property>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle" value="${maxIdle}"></property>
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${minIdle}"></property>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${maxWait}"></property>
     </bean>
-    <!-- 开启AOP切面
-    <aop:aspectj-autoproxy proxy-target-class="true" />
-    -->
-    <!-- 开启注解 -->
-    <context:annotation-config/>
+
+    <!-- spring和MyBatis整合-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="poolDataSource" />
+        <property name="configLocation" value="classpath:spring/spring-mybatis.xml"></property>
+        <property name="mapperLocations" value="classpath:mapping/*.xml"></property>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--扫描所有dao接口的实现，加到ioc容器中  -->
+        <property name="basePackage" value="com.eccom.mycat.tenant.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+    <!-- (事务管理)transaction manager -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--控制住事务源  -->
+        <property name="dataSource" ref="poolDataSource" />
+    </bean>
+
 </beans>

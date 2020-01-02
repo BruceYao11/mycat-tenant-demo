@@ -5,13 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.eccom.mycat</groupId>
-    <artifactId>tenant</artifactId>
+    <artifactId>mycat-tenant-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>mycat.tenant Maven Webapp</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <name>mycat-tenant-demo</name>
+    <description>tenant Maven Webapp</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -124,6 +123,12 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.2</version>
         </dependency>
     </dependencies>
 
