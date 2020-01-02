@@ -1,4 +1,4 @@
-package com.cyy.mycat.tenant.intercept;
+package com.eccom.mycat.tenant.intercept;
 import java.lang.reflect.Field;  
 
 import org.apache.commons.lang3.reflect.FieldUtils;

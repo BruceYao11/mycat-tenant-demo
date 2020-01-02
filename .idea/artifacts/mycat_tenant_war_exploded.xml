@@ -15,15 +15,18 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
           <element id="library" level="project" name="Maven: aspectj:aspectjrt:1.5.3" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.59" />

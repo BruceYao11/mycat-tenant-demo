@@ -1,4 +1,4 @@
-package com.cyy.mycat.tenant.intercept;
+package com.eccom.mycat.tenant.intercept;
 
 import java.sql.Connection;
 import java.util.Properties;

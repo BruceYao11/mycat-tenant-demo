@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/mvc
@@ -10,18 +10,17 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	
-	
-	<!-- 扫描使用注解的包，包括子集-->
-	<context:component-scan base-package="com.cyy.service"/>
+
+    <!-- 扫描使用注解的包，包括子集-->
+    <context:component-scan base-package="com.eccom.service"/>
     <!--<context:component-scan base-package="com.cyy.entity"/>-->
-    <context:component-scan base-package="com.cyy.controller"/>
-	<!--
-		通过注解，把URL映射到Controller上，该标签默认注册DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter
-	-->
-	<mvc:annotation-driven />
-	
-	<!-- 静态资源处理搜索spring控件 -->
+    <context:component-scan base-package="com.eccom.controller"/>
+    <!--
+        通过注解，把URL映射到Controller上，该标签默认注册DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter
+    -->
+    <mvc:annotation-driven/>
+
+    <!-- 静态资源处理搜索spring控件 -->
     <!--<mvc:annotation-driven></mvc:annotation-driven>-->
     <mvc:resources mapping="/static/**" location="/static/"/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
@@ -44,12 +43,11 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-	<mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
 
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
-    <bean
-            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
         <property name="prefix" value="/jsp/"/>
         <property name="suffix" value=".jsp"/>
